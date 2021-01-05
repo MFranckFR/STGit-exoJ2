@@ -1,154 +1,154 @@
 #!/usr/bin/env bash
+# Correction du td J2
+# @author franck
+#
 
 function pause() {
     read -n1 -rsp $'Press any key to continue or Ctrl+C to exit...\n'
 }
 
 # Préalable
-# git remote add origin https://github.com/MFranckFR/STGit-exoJ2
-# echo "git init doit déjà avoir été lancé dans ce dossier vide"
-# echo "git init"
-# echo "git remote add origin https://github.com/NAME/ESPACE"
-# pause
+echo "git init doit déjà avoir été lancé dans ce dossier vide"
+echo "git init"
+echo "git remote add origin https://github.com/NAME/ESPACE"
+pause
 
-# # creation d'un depot git-exos sur GitHub
-# # creer les dossiers html
-# mkdir -v html css js  # création des dossiers html css js
+mkdir -v html css js  # création des dossiers html css js
 
 
-# # page web index.html
-# echo Enregistrement de la page index.html
-# cat <<EOL >>html/index.html
-# </<!DOCTYPE html>
-# <html class="no-js">
-# <head>
-# <meta charset="utf-8">
-# <meta http-equiv="X-UA-Compatible" content="IE=edge">
-# <title>Git exercices</title>
-# <meta name="description" content="">
-# <meta name="viewport" content="width=device-width, initial-scale=1">
-# <link rel="stylesheet" href="../css/style.css">
-# </head>
-# <body>
-# <script src="../js/index.js" async defer></script>
-# </body>
-# </html>
-# EOL
+# page web index.html
+echo Enregistrement de la page index.html
+cat <<EOL >>html/index.html
+</<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Git exercices</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<script src="../js/index.js" async defer></script>
+</body>
+</html>
+EOL
 
-# # page js
-# echo Enregistrement de js/index.js
-# cat <<EOL >>js/index.js
-# console.log("js is ready");
-# EOL
+# page js
+echo Enregistrement de js/index.js
+cat <<EOL >>js/index.js
+console.log("js is ready");
+EOL
 
-# # css
-# echo Enregistrement de css/style.css
-# cat <<EOL >>css/style.css
-# body {
-# background: blue;
-# }
-# EOL
+# css
+echo Enregistrement de css/style.css
+cat <<EOL >>css/style.css
+body {
+background: blue;
+}
+EOL
 
-# echo "Faire un git status"
-# git status
-# pause
+echo "Faire un git status"
+git status
+pause
 
-# echo "Faire un git add *"
-# git add *
+echo "Faire un git add *"
+git add *
 
-# echo "Faire un git status"
-# git status
-# pause
+echo "Faire un git status"
+git status
+pause
 
-# echo "git commit -m \"Initial commit\""
-# git commit -m "Initial commit"
-# pause
+echo "git commit -m \"Initial commit\""
+git commit -m "Initial commit"
+pause
 
-# echo "Faire un git status"
-# git status
-# pause
+echo "Faire un git status"
+git status
+pause
 
-# echo "Faire un git push qui va etre en erreur"
-# git push
-# pause
+echo "Faire un git push qui va etre en erreur"
+git push
+pause
 
-# echo git push --set-upstream origin master
-# git push --set-upstream origin master
-# pause
+echo git push --set-upstream origin master
+git push --set-upstream origin master
+pause
 
 
-# echo "Création d'une nouvelle branche"
-# echo branch dev
-# git branch dev
-# echo git branch
-# git branch
-# pause
+echo "Création d'une nouvelle branche"
+echo branch dev
+git branch dev
+echo git branch
+git branch
+pause
 
-# echo "Passage à la branche dev"
-# echo git checkout dev
-# git checkout dev
-# git status
-# pause
+echo "Passage à la branche dev"
+echo git checkout dev
+git checkout dev
+git status
+pause
 
-# echo "Modification du css - Passage du bleu au rouge"
-# sed -i 's/background: blue;/background: red;/g' css/style.css
-# git status
-# pause
+echo "Modification du css - Passage du bleu au rouge"
+sed -i 's/background: blue;/background: red;/g' css/style.css
+git status
+pause
 
-# echo "git add css/style.css"
-# git add css/style.css
-# echo git commit -m "[CSS] Changed the body background color"
-# git commit -m "[CSS] Changed the body background color"
+echo "git add css/style.css"
+git add css/style.css
+echo git commit -m "[CSS] Changed the body background color"
+git commit -m "[CSS] Changed the body background color"
 
-# echo 'git push' simple doit être en erreur
-# git push
-# pause
+echo 'git push' simple doit être en erreur
+git push
+pause
 
-# echo "On suit l'indication de git pour le push"
-# git push --set-upstream origin dev
+echo "On suit l'indication de git pour le push"
+git push --set-upstream origin dev
 
-# pause
-# echo "Changement de branche: vers master"
-# git checkout master
-# echo "Le fond rouge repasse en bleu !"
+pause
+echo "Changement de branche: vers master"
+git checkout master
+echo "Le fond rouge repasse en bleu !"
 
-# echo "Nous allons faire un merge : fusion de la branche dev vers master"
-# cat <<EOL
-# git checkout master
-# git pull
-# git merge dev
-# EOL
-# git checkout master
-# git pull
-# git merge --rebase dev
-# pause
+echo "Nous allons faire un merge : fusion de la branche dev vers master"
+cat <<EOL
+git checkout master
+git pull
+git merge dev
+EOL
+git checkout master
+git pull
+git merge --rebase dev
+pause
 
-# echo "Step: Passons à un merge conflict"
-# echo "Verifions que nous sommes bien dans la branche master"
-# cat <<EOL
-# git checkout master
-# git branch
-# EOL
-# git checkout master
-# git branch
-# pause
+echo "Step: Passons à un merge conflict"
+echo "Verifions que nous sommes bien dans la branche master"
+cat <<EOL
+git checkout master
+git branch
+EOL
+git checkout master
+git branch
+pause
 
-# echo "Creation d'un fichier readme.md"
-# cat <<EOL >>readme.md
-# //Instructions goes here...
-# EOL
+echo "Creation d'un fichier readme.md"
+cat <<EOL >>readme.md
+//Instructions goes here...
+EOL
 
-# echo git status
-# git status
-# pause
+echo git status
+git status
+pause
 
-# echo "Retour sur le branche dev"
-# echo git checkout dev
-# git checkout dev
-# echo "Création d'une nouvelle branche branchName + déplacement sur cette même branche"
-# echo git checkout -b branchName
-# git checkout -b branchName
-# pause
+echo "Retour sur le branche dev"
+echo git checkout dev
+git checkout dev
+echo "Création d'une nouvelle branche branchName + déplacement sur cette même branche"
+echo git checkout -b branchName
+git checkout -b branchName
+pause
 
 echo "Ajoutons et commitons readme.md"
 echo git add readme.md
